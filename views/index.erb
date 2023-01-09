@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Arabic Poem Generator</title>
+</head>
+<body>
+  <div class="main-section">
+    <h1>Arabic Poem Generator</h1>
+    <form action="/generate_poem" method="POST">
+      <section>
+        <select name="poet" id="poet-select" include-blank="Select a poet">
+          <option value="" disabled selected>Select a poet</option>
+          <% @available_poets.each do |poet| %>
+            <option value="<%= poet %>"><%= poet %></option>
+          <% end %>
+        </select>
+      </section>
+      <section>
+        <input id='rhyme' type="text" name="rhyme" placeholder="Enter a rhyme" value='الا'>
+      </section>
+      <input type="submit">
+    </form>
+    <div id="poems">
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
